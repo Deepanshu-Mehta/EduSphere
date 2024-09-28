@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowRight, UserPlus } from 'lucide-react';
 
@@ -11,7 +11,7 @@ const Register = ({ onLogin }) => {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:3000/auth/register', {
+      const response = await fetch('https://edusphere-gk36.onrender.com/auth/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

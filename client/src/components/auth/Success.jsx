@@ -15,7 +15,7 @@ const Success = () => {
     if (sessionId && courseIds.length > 0) {
       const storePurchase = async () => {
         try {
-          await axios.post('http://localhost:3000/store-purchase/store-purchase', {
+          await axios.post('https://edusphere-gk36.onrender.com/store-purchase/store-purchase', {
             courseIds: courseIds
           }, {
             headers: {

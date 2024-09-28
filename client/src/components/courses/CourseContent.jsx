@@ -13,7 +13,7 @@ const CourseContent = () => {
     const fetchCourseContent = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get(`http://localhost:3000/course-content/course-content/${id}`, {
+        const response = await axios.get(`https://edusphere-gk36.onrender.com/course-content/course-content/${id}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setCourse(response.data);

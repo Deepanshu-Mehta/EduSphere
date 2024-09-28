@@ -178,7 +178,7 @@ const MyCourses = () => {
   async function refreshToken() {
     try {
       const response = await axios.post(
-        "http://localhost:3000/auth/refresh-token",
+        "https://edusphere-gk36.onrender.com/auth/refresh-token",
         {},
         {
           headers: {
@@ -199,7 +199,7 @@ const MyCourses = () => {
     try {
       let token = localStorage.getItem("token");
       const response = await axios.get(
-        "http://localhost:3000/purchased/purchased-courses",
+        "https://edusphere-gk36.onrender.com/purchased/purchased-courses",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -214,7 +214,7 @@ const MyCourses = () => {
         try {
           const newToken = await refreshToken();
           const response = await axios.get(
-            "http://localhost:3000/purchased/purchased-courses",
+            "https://edusphere-gk36.onrender.com/purchased/purchased-courses",
             {
               headers: {
                 Authorization: `Bearer ${newToken}`,

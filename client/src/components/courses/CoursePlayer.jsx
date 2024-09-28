@@ -13,7 +13,7 @@ const CoursePlayer = () => {
   useEffect(() => {
     const fetchCourseDetails = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/course-content/${courseId}`, {
+        const response = await axios.get(`https://edusphere-gk36.onrender.com/course-content/${courseId}`, {
           headers: {
             'Authorization': `Bearer ${localStorage.getItem('token')}`
           }
