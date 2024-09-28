@@ -3,6 +3,7 @@ const express = require("express");
 const cors = require("cors");
 const { initializeConnection } = require('./config/database')
 const path = require("path");
+require("bcrypt");
 
 const app = express();
 app.use(express.json());
