@@ -27,7 +27,6 @@ const storeItems = new Map([
 
 exports.createCheckoutSession = async (req, res) => {
   try {
-
     const userId = req.user.id;
     if (!userId) {
       throw new Error("User ID is not defined. Ensure the user is authenticated.");
@@ -37,7 +36,6 @@ exports.createCheckoutSession = async (req, res) => {
 
     // Check if any of the selected courses have already been purchased
     const purchasedCourseIds = await checkPurchasedCourses(userId, courseIds);
-
 
     if (purchasedCourseIds.length > 0) {
       return res.status(400).json({
@@ -73,7 +71,7 @@ exports.createCheckoutSession = async (req, res) => {
       payment_method_types: ["card"],
       mode: "payment",
       line_items: lineItems,
-      success_url: `${process.env.CLIENT_URL}/success?session_id={CHECKOUT_SESSION_ID} &course_id=${JSON.stringify(courseIds)}`,
+      success_url: `${process.env.CLIENT_URL}/success?session_id={CHECKOUT_SESSION_ID}&course_id=${encodeURIComponent(JSON.stringify(courseIds))}`,
       cancel_url: `${process.env.CLIENT_URL}/cancel`,
     });
 
