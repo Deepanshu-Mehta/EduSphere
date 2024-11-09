@@ -7,10 +7,9 @@ async function initializeConnection() {
       user: process.env.DB_USER,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_NAME,
-      URL : process.env.DB_URL,
     };
 
-    const connection = await mysql.createConnection(connectionConfig.URL);
+    const connection = await mysql.createConnection(connectionConfig);
     console.log(`connected to ${connectionConfig.database} database`);
 
     return connection;
