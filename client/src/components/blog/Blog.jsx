@@ -14,17 +14,16 @@ const Blog = () => {
   useEffect(() => {
     const loadMarkdown = async () => {
       try {
-        const markdownModule = await import(`../../blogs/${blogId}.md`);
-        const htmlContent = markdownModule.html || '';
-        setContent(htmlContent);
-        setAttributes(markdownModule.attributes || {});
+        const response = await fetch(`/api/blogs/${blogId}`);
+        const markdownContent = await response.text();
+        setContent(markdownContent);
       } catch (err) {
         console.error('Error loading blog content:', err);
       } finally {
         setLoading(false);
       }
     };
-
+  
     loadMarkdown();
   }, [blogId]);
 
