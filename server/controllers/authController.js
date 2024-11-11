@@ -1,4 +1,4 @@
-const bcrypt = require('bcryptjs');
+const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const { initializeConnection } = require("../config/database");
 
@@ -67,7 +67,6 @@ exports.login = async (req, res) => {
       token,
       refreshToken
     });
-
   } catch (error) {
     console.error("Error during login:", error);
     res.status(500).send("Error logging in");
